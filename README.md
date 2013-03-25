@@ -1,0 +1,1 @@
+This is the compare engine, writen in Javascript.
