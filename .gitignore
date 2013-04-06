@@ -1,6 +1,4 @@
 projectFilesBackup/
 report/
 .idea/
-
-#add first yeoman/bower. Then you can add this line:
-#mout
+components/

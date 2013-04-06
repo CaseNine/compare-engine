@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title>typeappdev</title>
     <link rel="stylesheet" href="global.css">
-    <script data-main="global" src="require.min.js"></script>
+    <script data-main="global" src="components/requirejs/require.js"></script>
     <script>
         require.config({
             baseUrl:'./',
             paths: {
-                'jquery': 'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min'
+                'jquery': 'components/jquery/jquery',
+                'mout': 'components/mout/src/'
             }
         });
     </script>
