@@ -15,17 +15,32 @@ module.exports = function (grunt) {
         requirejs: {
             compile: {
                 options: {
-                    baseurl: '.',
+                    baseUrl: '.',
                     paths: {
                         'jquery': 'components/jquery/jquery',
-                        'mout': 'components/mout/src/'
+                        'mout': 'components/mout/src/',
+                        'requireLib': 'components/requirejs/require'
                     },
+                    include: 'requireLib',
                     name: 'global',
-                    out: 'build/output.js'
+                    out: 'build/output.js',
+                    optimize: 'uglify'
                 }
             }
         },
-        clean: ['report/'],
+        clean: {
+            report: [
+                'report/'
+            ],
+            deploy: ['build/']
+        },
+        copy: {
+            deploy: {
+                files: {
+                    'build/': ['index.html', 'global.css']
+                }
+            }
+        },
         plato: {
             default_options: {
                 files: {
@@ -35,17 +50,27 @@ module.exports = function (grunt) {
                         'Gruntfile.js']
                 }
             }
+        },
+        useminPrepare: {
+            html: ['build/index.html']
+        },
+        usemin: {
+            html: ['build/index.html']
         }
     });
 
-    // Load the plugin that provides the "uglify" task.
+// Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-plato');
+    grunt.loadNpmTasks('grunt-usemin');
+    grunt.loadNpmTasks('grunt-contrib');
 
-    // Default task(s).
-    grunt.registerTask('default', ['requirejs', 'uglify', 'clean', 'plato']);
+// Default task(s).
+    grunt.registerTask('default', ['useminPrepare', 'requirejs', 'clean', 'plato']);
+    grunt.registerTask('deploy', ['clean:deploy', 'copy', 'useminPrepare', 'requirejs', 'usemin']);
 
 };
+
 

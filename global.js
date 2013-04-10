@@ -1,4 +1,4 @@
-define([
+require([
     'check_word',
     'check_characters',
     'check_eager_spaces',
