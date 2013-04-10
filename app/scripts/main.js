@@ -1,3 +1,11 @@
+require.config({
+    paths: {
+        jquery: '../components/jquery/jquery',
+        mout: '../components/mout/src'
+    }
+});
+
+
 require([
     'check_word',
     'check_characters',

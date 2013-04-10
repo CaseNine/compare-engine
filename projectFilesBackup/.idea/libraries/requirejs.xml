@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="requirejs" type="javaScript">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/require.min.js" />
+    </CLASSES>
+    <DOCUMENTATION>
+      <root url="http://requirejs.org/docs/api.html" />
+    </DOCUMENTATION>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/require.js" />
+    </SOURCES>
+  </library>
+</component>

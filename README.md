@@ -5,6 +5,7 @@ This is the compare engine, writen in Javascript.
 run on your terminal the following command:
 
 ```shell
-grunt install
 grunt
 ```
+
+And checkout the dist/ dir.
