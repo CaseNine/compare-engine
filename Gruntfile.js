@@ -24,15 +24,28 @@ module.exports = function (grunt) {
                     out: 'build/output.js'
                 }
             }
+        },
+        clean: ['report/'],
+        plato: {
+            default_options: {
+                files: {
+                    'report': ['**/*.js', '!**/node_modules/**',
+                        '!**/components/**', '!**/build/**', '!**/report/**',
+                        '!**/projectFilesBackup/**', '!**/.git/**',
+                        'Gruntfile.js']
+                }
+            }
         }
     });
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-plato');
 
     // Default task(s).
-    grunt.registerTask('default', ['requirejs', 'uglify']);
-
+    grunt.registerTask('default', ['requirejs', 'uglify', 'clean', 'plato']);
 
 };
+
